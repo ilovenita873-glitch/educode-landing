@@ -32,7 +32,6 @@ export default function Hero() {
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-4 pt-2">
-                {/* Primary Button -> Opens Modal */}
                 <button
                   onClick={() => setIsModalOpen(true)}
                   className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-2xl shadow-lg shadow-blue-600/30 active:scale-95 transition-all flex items-center gap-3"
@@ -41,7 +40,6 @@ export default function Hero() {
                   <ArrowRight className="w-5 h-5" />
                 </button>
 
-                {/* Secondary Button -> Scrolls to Courses */}
                 <a
                   href="#courses"
                   className="px-7 py-4 bg-white hover:bg-slate-50 text-slate-800 font-bold rounded-2xl border border-slate-200/80 shadow-sm transition-all flex items-center gap-2.5"
@@ -69,50 +67,22 @@ export default function Hero() {
 
             </div>
 
-            {/* Right Code Visual Terminal */}
-            <div className="lg:col-span-5">
-              <div className="bg-slate-900 rounded-3xl p-6 shadow-2xl border border-slate-800 relative">
-                
-                {/* Terminal Header */}
-                <div className="flex items-center justify-between pb-4 border-b border-slate-800 mb-6">
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-rose-500" />
-                    <div className="w-3 h-3 rounded-full bg-amber-500" />
-                    <div className="w-3 h-3 rounded-full bg-emerald-500" />
-                  </div>
-                  <span className="text-xs font-mono text-slate-400">&gt;_ App.tsx</span>
-                </div>
+            {/* Right Side: 3D Illustration Visual */}
+            <div className="lg:col-span-5 relative group">
+              
+              {/* Blue Glow Background */}
+              <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl blur-2xl opacity-20 group-hover:opacity-30 transition duration-500" />
 
-                {/* Code Snippet */}
-                <div className="font-mono text-xs sm:text-sm leading-relaxed space-y-2">
-                  <p className="text-slate-500">// EduCode O'quvchisi</p>
-                  <p className="text-slate-200">
-                    <span className="text-purple-400">const</span> student = &#123;
-                  </p>
-                  <p className="pl-4 text-slate-300">
-                    name: <span className="text-amber-300">'Siz'</span>,
-                  </p>
-                  <p className="pl-4 text-slate-300">
-                    status: <span className="text-amber-300">'Boshlovchi'</span>,
-                  </p>
-                  <p className="pl-4 text-slate-300">
-                    target: <span className="text-amber-300">'Junior Frontend Dev'</span>,
-                  </p>
-                  <p className="pl-4 text-slate-300">
-                    skills: [<span className="text-amber-300">'React'</span>, <span className="text-amber-300">'TypeScript'</span>, <span className="text-amber-300">'Tailwind'</span>],
-                  </p>
-                  <p className="pl-4 text-slate-300">
-                    result: <span className="text-purple-400">function</span>() &#123;
-                  </p>
-                  <p className="pl-8 text-emerald-400">
-                    return 'Yuqori maoshli ish!'
-                  </p>
-                  <p className="pl-4 text-slate-300">&#125;</p>
-                  <p className="text-slate-200">&#125;</p>
-                </div>
+              {/* Image Container */}
+              <div className="relative rounded-3xl overflow-hidden bg-slate-900 shadow-2xl border border-slate-800">
+                <img
+                  src="/src/hero-illustration.jpg"
+                  alt="SetUp platformasi ta'lim muhiti"
+                  className="w-full h-auto max-h-[500px] object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                />
 
-                {/* Certificate Banner Card */}
-                <div className="mt-8 p-4 rounded-2xl bg-blue-950/60 border border-blue-800/50 flex items-center gap-3.5">
+                {/* Floating Certificate Banner */}
+                <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-slate-900/80 backdrop-blur-md border border-slate-700/60 flex items-center gap-3.5 shadow-lg">
                   <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white shrink-0">
                     <Award className="w-5 h-5" />
                   </div>
@@ -121,15 +91,15 @@ export default function Hero() {
                     <p className="text-xs font-bold text-white">Sertifikat bilan ta'minlanadi</p>
                   </div>
                 </div>
-
               </div>
+
             </div>
 
           </div>
         </div>
       </section>
 
-      {/* Modal Dialog Connection */}
+      {/* Modal Dialog */}
       <RegisterModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   )
