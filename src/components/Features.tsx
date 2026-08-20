@@ -45,7 +45,7 @@ export default function Features() {
             Bizning Afzalliklarimiz
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Nega aynan <span className="text-blue-600">EduCode</span> platformasi?
+            Nega aynan <span className="text-blue-600">SetUp</span> platformasi?
           </h2>
           <p className="text-slate-600 text-base sm:text-lg">
             IT sohasida tez va samarali natijaga erishishingiz uchun barcha sharoitlarni bir joyga jamladik.

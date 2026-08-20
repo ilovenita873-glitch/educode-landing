@@ -58,35 +58,44 @@ export default function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    const rawDigits = phone.replace(/\D/g, '')
-    if (rawDigits.length !== 12) return
+    // Telefon raqam to'liq kiritilganini tekshirish
+    const rawDigits = phone.replace(/\D/g, '').slice(0, 12)
+    if (rawDigits.length !== 12) {
+      alert("Iltimos, telefon raqamingizni to'liq kiriting!")
+      return
+    }
 
     setLoading(true)
 
     const BOT_TOKEN = '8770461912:AAEXL5SmS3ZKsm5mlKCoDGi8AaeL6mD6YoU'
-    const CHAT_ID = '7050156709'
+    
+    // Ham shaxsiy ID, ham Guruh ID'si
+    const CHAT_IDS = [
+      '7050156709',          // Sizning shaxsiy Telegram ID'ngiz
+      '-1004369703877'       // Siz bergan Telegram Guruh ID'si
+    ]
 
     const tgUser = telegram ? telegram : "Ko'rsatilmadi"
     const message = `📬 *Yangi Ariza (Navbar)*\n\n👤 *Ism:* ${name}\n📞 *Tel:* ${phone}\n💬 *Telegram:* ${tgUser}`
 
     try {
-      const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          chat_id: CHAT_ID,
-          text: message,
-          parse_mode: 'Markdown'
+      // Ikkala joyga ham xabarni ketma-ket yuborish
+      for (const chatId of CHAT_IDS) {
+        await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: message,
+            parse_mode: 'Markdown'
+          })
         })
-      })
-
-      const data = await res.json()
-
-      if (data.ok) {
-        setIsSuccess(true)
       }
-    } catch {
-      // Xatolikni yashirish
+
+      setIsSuccess(true)
+    } catch (error) {
+      console.error("Xabar yuborishda xatolik yuz berdi:", error)
+      alert("Xatolik yuz berdi. Qayta urinib ko'ring!")
     } finally {
       setLoading(false)
     }
@@ -183,7 +192,7 @@ export default function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
             </form>
           </>
         ) : (
-          /* Muvaffaqiyat oynasi va sakraydigan yashil ikonka */
+          /* Muvaffaqiyat oynasi */
           <div className="text-center space-y-6 py-4">
             <div className="w-20 h-20 bg-emerald-50 border border-emerald-100 rounded-3xl flex items-center justify-center mx-auto shadow-sm animate-bounce-subtle">
               <CheckCircle2 className="w-10 h-10 text-emerald-600" />

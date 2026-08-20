@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Code2, Menu, X, ChevronRight } from 'lucide-react'
+import { Menu, X, ChevronRight } from 'lucide-react'
 import RegisterModal from './registerModal'
 
 export default function Navbar() {
@@ -40,22 +40,29 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-blue-100/60 shadow-sm transition-all">
+      <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-blue-100/60 shadow-sm transition-all">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             
-            {/* Logo */}
-            <a href="#" className="flex items-center gap-3 group">
-              <div className="w-11 h-11 bg-blue-600 rounded-2xl flex items-center justify-center text-white shadow-md shadow-blue-600/30 group-hover:bg-blue-700 group-hover:scale-105 transition-all duration-200">
-                <Code2 className="w-6 h-6" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-xl font-black text-slate-900 tracking-tight leading-none">
-                  Edu<span className="text-blue-600">Code</span>
-                </span>
-                <span className="text-[10px] font-bold text-blue-600/80 tracking-widest uppercase mt-0.5">
-                  Online Academy
-                </span>
+            {/* Logo - Toza SVG (Aynan sizning logotipiz) */}
+            <a href="#" className="flex items-center gap-2 group">
+              <div className="flex items-center gap-2.5">
+                <svg className="h-8 w-auto" viewBox="0 0 70 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  {/* Birinchi ustun - To'q ko'k */}
+                  <rect x="0" y="32" width="14" height="28" rx="6" fill="#1E2A5E" />
+                  {/* Ikkinchi ustun - Yorqin ko'k */}
+                  <rect x="18" y="16" width="14" height="44" rx="6" fill="#2563EB" />
+                  {/* Uchinchi ustun va strelka - Sariq */}
+                  <path d="M45 0L58 14H51V60H39V14H32L45 0Z" fill="#F59E0B" />
+                </svg>
+                <div className="flex items-center text-3xl font-black tracking-tight">
+                  <span className="text-[#1E2A5E]">Set</span>
+                  <div className="relative flex items-center">
+                    <span className="text-[#2563EB]">U</span>
+                    {/* U harfining ustidagi kichik strelka */}
+                    <span className="text-[#2563EB]">p</span>
+                  </div>
+                </div>
               </div>
             </a>
 

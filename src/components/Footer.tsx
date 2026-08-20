@@ -73,7 +73,7 @@ export default function Footer() {
               <div className="relative flex-1">
                 <input
                   type="email"
-                  placeholder="emailgaqiziqshma@gmail.com"
+                  placeholder="emailingizni kiriting..."
                   value={email}
                   onChange={(e) => {
                     setEmail(e.target.value)
@@ -123,15 +123,24 @@ export default function Footer() {
           
           {/* Column 1: Logo & Info */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-sm">
-                &lt;/&gt;
+            
+            {/* SetUp Logo */}
+            <a href="#" className="flex items-center gap-2.5">
+              <svg className="h-7 w-auto" viewBox="0 0 70 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0" y="32" width="14" height="28" rx="6" fill="#1E2A5E" />
+                <rect x="18" y="16" width="14" height="44" rx="6" fill="#2563EB" />
+                <path d="M45 0L58 14H51V60H39V14H32L45 0Z" fill="#F59E0B" />
+              </svg>
+              <div className="flex items-center text-2xl font-black tracking-tight">
+                <span className="text-[#1E2A5E]">Set</span>
+                <span className="text-[#2563EB]">Up</span>
               </div>
-              <span className="text-xl font-black text-slate-900">EduCode</span>
-            </div>
+            </a>
+
             <p className="text-slate-500 text-sm max-w-sm leading-relaxed">
               Zamonaviy IT ta'limi va amaliy ko'nikmalarni o'rgatuvchi platforma. Kelajak kasbini bugundan biz bilan birga egallang.
             </p>
+
             <div className="flex items-center gap-3 pt-2">
               <button className="w-9 h-9 rounded-xl border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-100 transition-colors">
                 <Send className="w-4 h-4" />
@@ -176,7 +185,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-blue-600 shrink-0" />
-                <span>info@educode.uz</span>
+                <span>info@setup.uz</span>
               </li>
               <li className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-blue-600 shrink-0" />
